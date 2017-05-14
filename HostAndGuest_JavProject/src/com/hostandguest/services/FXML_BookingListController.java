@@ -358,18 +358,8 @@ public class FXML_BookingListController implements Initializable {
             });
             
             // temp
-            User currentUser = new User();
-                currentUser.setId(2);
-                currentUser.setLast_name("Coller");
-                currentUser.setFirst_name("Jack");
-            
-            Property relatedProperty = new Property();
-                relatedProperty.setId(1);
-                relatedProperty.setNbRooms(2);
-                relatedProperty.setPrice(555);
-            
-            addController.currentUser = currentUser;
-            addController.relatedProperty = relatedProperty;
+			addController.currentUser = new UserService().getUserById(User.currentUser);
+            addController.relatedProperty = booking.getProperty();
             // end temp
             
             currentInstance.setBookingListStage((Stage) lstUserBookings.getScene().getWindow());
