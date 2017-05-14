@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.79" prefHeight="458.0" prefWidth="600.0" style="-fx-background-image: url('file:/C:/Users/BEYRAM-BG/Documents/NetBeansProjects/HostAndGuest_JavProject-master/src/resources/bg_video_fallback.jpg'); -fx-background-size: 1200,200;" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.views.LoginController">
+
+    <children>
+      <Label layoutX="119.0" layoutY="113.0" prefHeight="36.0" prefWidth="69.0" text="Username :" />
+      <Label layoutX="119.0" layoutY="188.0" text="Password :" />
+      <TextField fx:id="username_box" layoutX="209.0" layoutY="119.0" />
+      <PasswordField fx:id="password_box" layoutX="209.0" layoutY="184.0" />
+      <Button fx:id="connect" layoutX="227.0" layoutY="247.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="126.0" text="Se connecter" />
+      <Button fx:id="signin" layoutX="283.0" layoutY="366.0" mnemonicParsing="false" onAction="#creercompte" prefHeight="25.0" prefWidth="126.0" text="Create new Account" />
+      <Label layoutX="45.0" layoutY="14.0" prefHeight="54.0" prefWidth="282.0" text="Host &amp; Guest Login" textFill="#ae2f2f">
+         <font>
+            <Font name="System Italic" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="valide" layoutX="255.0" layoutY="304.0" textFill="#f20303" />
+      <ImageView fitHeight="80.0" fitWidth="105.0" layoutX="520.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('file:/C:/Users/BEYRAM-BG/Documents/NetBeansProjects/HostAndGuest_JavProject-master/src/resources/apple-touch-icon-72x72-precomposed.png');" />
+            
+   </children>
+   
+</Pane>

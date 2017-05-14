@@ -1,0 +1,19 @@
+experience_add:
+    path:     /ajout
+    defaults: { _controller: ExperienceBundle:Experience:addExperience }
+
+experience_homepage:
+    path:     /affichage
+    defaults: { _controller: ExperienceBundle:Experience:affichExperience }
+
+experience_details:
+    path:     /detailed/{id}
+    defaults: { _controller: ExperienceBundle:Experience:affichDetailedExperience }
+
+experience_delete:
+    path:     /delete/{id}
+    defaults: { _controller: ExperienceBundle:Experience:removeExperience }
+
+experience_update:
+    path:     /update/{id}
+    defaults: { _controller: ExperienceBundle:Experience:updateExperience }

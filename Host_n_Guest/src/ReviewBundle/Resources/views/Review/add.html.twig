@@ -1,0 +1,302 @@
+{#{% if is_not_allowed is not defined %}#}
+{% block add_review %}
+    <style>
+        /* Select Box Style */
+        /* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+        /* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+        .styled-select {
+            background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+            height: 29px;
+            overflow: hidden;
+            width: 240px;
+        }
+
+        .styled-select select {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            height: 29px;
+            padding: 5px; /* If you add too much padding here, the options won't show in IE */
+            width: 268px;
+        }
+
+        .styled-select.slate {
+            background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+            height: 34px;
+            width: 240px;
+        }
+
+        .styled-select.slate select {
+            border: 1px solid #ccc;
+            font-size: 16px;
+            height: 34px;
+            width: 268px;
+        }
+
+        /* -------------------- Rounded Corners */
+        .rounded {
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .semi-square {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        /* -------------------- Colors: Background */
+        .slate   { background-color: #ddd; }
+        .green   { background-color: #86b535; }
+        .blue    { background-color: #3b8ec2; }
+        .yellow  { background-color: #eec111; }
+        .black   { background-color: #000; }
+
+        /* -------------------- Colors: Text */
+        .slate select   { color: #000; }
+        .green select   { color: #fff; }
+        .blue select    { color: #fff; }
+        .yellow select  { color: #000; }
+        .black select   { color: #fff; }
+
+
+        /* -------------------- Select Box Styles: danielneumann.com Method */
+        /* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+        #mainselection select {
+            border: 0;
+            color: #EEE;
+            background: transparent;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 2px 10px;
+            width: 378px;
+            *width: 350px;
+            *background: #86b535;
+            -webkit-appearance: none;
+        }
+
+        #mainselection {
+            overflow:hidden;
+            width:350px;
+            -moz-border-radius: 9px 9px 9px 9px;
+            -webkit-border-radius: 9px 9px 9px 9px;
+            border-radius: 9px 9px 9px 9px;
+            box-shadow: 1px 1px 11px #330033;
+            background: #86b535 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+        }
+
+
+        /* -------------------- Select Box Styles: stackoverflow.com Method */
+        /* -------------------- Source: http://stackoverflow.com/a/5809186 */
+        select#soflow, select#soflow-color {
+            -webkit-appearance: button;
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-padding-end: 20px;
+            -webkit-padding-start: 2px;
+            -webkit-user-select: none;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+            background-position: 97% center;
+            background-repeat: no-repeat;
+            border: 1px solid #AAA;
+            color: #555;
+            font-size: inherit;
+            margin: 20px;
+            overflow: hidden;
+            padding: 5px 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 300px;
+        }
+
+        /* Textarea Style */
+        body {background: #F0F0F0;}
+
+
+        h2 {margin-left: 55px;}
+
+        textarea {
+            margin-top: 10px;
+            width: 500px;
+            height: 100px;
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+            border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+            border-image: none;
+            border-radius: 6px 6px 6px 6px;
+            border-style: none solid solid none;
+            border-width: medium 1px 1px medium;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+            color: #555555;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 1em;
+            line-height: 1.4em;
+            padding: 5px 8px;
+            transition: background-color 0.2s ease 0s;
+        }
+
+        textarea:focus {
+            background: none repeat scroll 0 0 #FFFFFF;
+            outline-width: 0;
+        }
+
+        /* Input Range Style*/
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        /*
+        body {
+            font-family: sans-serif;
+            padding: 60px 20px;
+        }
+        @media (min-width: 600px) {
+            body {
+                padding: 60px;
+            }
+        }
+        */
+
+        .range-slider {
+            margin: 60px 0 0 0%;
+        }
+
+        .range-slider {
+            width: 100%;
+        }
+
+        .range-slider__range {
+            -webkit-appearance: none;
+            width: calc(100% - (73px));
+            height: 10px;
+            border-radius: 5px;
+            background: #d7dcdf;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+        .range-slider__range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #48b514;
+            cursor: pointer;
+            -webkit-transition: background .15s ease-in-out;
+            transition: background .15s ease-in-out;
+        }
+        .range-slider__range::-webkit-slider-thumb:hover {
+            background: #86b535;
+        }
+        .range-slider__range:active::-webkit-slider-thumb {
+            background: #86b535;
+        }
+        .range-slider__range::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border: 0;
+            border-radius: 50%;
+            background: #86b535;
+            cursor: pointer;
+            -webkit-transition: background .15s ease-in-out;
+            transition: background .15s ease-in-out;
+        }
+        .range-slider__range::-moz-range-thumb:hover {
+            background: #48b514;
+        }
+        .range-slider__range:active::-moz-range-thumb {
+            background: #48b514;
+        }
+
+        .range-slider__value {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            color: #fff;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 3px;
+            background: #86b535;
+            padding: 5px 10px;
+            margin-left: 8px;
+        }
+        .range-slider__value:after {
+            position: absolute;
+            top: 8px;
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-right: 7px solid #86b535;
+            border-bottom: 7px solid transparent;
+            content: '';
+        }
+
+        ::-moz-range-track {
+            background: #d7dcdf;
+            border: 0;
+        }
+
+        input::-moz-focus-inner,
+        input::-moz-focus-outer {
+            border: 0;
+        }
+    </style>
+
+    {% if review_add_form != false %}
+        {{ form_start(review_add_form) }}
+
+        <b>Comment</b>
+        {{ form_widget(review_add_form.comment) }}
+
+        <hr />
+
+        <div class="range-slider">
+            <b>Price/Quality</b> <br />
+            {{ form_widget(review_add_form.price_quality) }}
+            <span class="range-slider__value">3</span>
+        </div>
+
+        <div class="range-slider">
+            <b>Position</b> <br />
+            {{ form_widget(review_add_form.lieu) }}
+            <span class="range-slider__value">3</span>
+        </div>
+
+        <div class="range-slider">
+            <b>Precision</b> <br />
+            {{ form_widget(review_add_form.precision) }}
+            <span class="range-slider__value">3</span>
+        </div>
+
+        <div class="range-slider">
+            <b>Communication</b> <br />
+            {{ form_widget(review_add_form.communication) }}
+            <span class="range-slider__value">3</span>
+        </div>
+
+        <div class="range-slider">
+            <b>Cleanliness</b> <br />
+            {{ form_widget(review_add_form.cleanliness) }}
+            <span class="range-slider__value">3</span>
+        </div>
+
+        <br />
+        <b>Booking Date</b>
+        <div class="styled-select green rounded">
+            {{ form_widget(review_add_form.booking) }}
+        </div>
+
+        <br />
+        {{ form_widget(review_add_form.Submit, {'attr' : {'class' : 'btn_1 add_bottom_15'} }) }}
+
+        {{ form_end(review_add_form) }}
+    {% else %}
+        <h3>Sorry, you're not allowed to review</h3>
+    {% endif %}
+{% endblock %}

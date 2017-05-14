@@ -1,0 +1,9 @@
+review_get:
+    path:     /get/{pid}
+    defaults: { _controller: ReviewBundle:Review:getReviews }
+review_add:
+    path:     /add/{pid}
+    defaults: { _controller: ReviewBundle:Review:addReview }
+review_remove:
+    path:     /remove/{rid}
+    defaults: { _controller: ReviewBundle:Review:deleteReview }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #EFEBE9;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.views.ListPropertyController">
+   <children>
+      <JFXListView fx:id="listProperty" layoutX="-1.0" layoutY="231.0" prefHeight="371.0" prefWidth="800.0" />
+      <ImageView fitHeight="169.0" fitWidth="801.0" opacity="0.75">
+         <image>
+            <Image url="@../../../resources/CaptureBG.PNG" />
+         </image>
+      </ImageView>
+      <Label graphicTextGap="0.0" layoutX="38.0" layoutY="171.0" prefHeight="58.0" prefWidth="261.0" text="Property List :" textFill="#f24e4e">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ToolBar layoutX="494.0" layoutY="180.0" prefHeight="40.0" prefWidth="277.0" style="-fx-background-color: #EFEBE9;">
+        <items>
+            <JFXTextField fx:id="locationtxt" promptText="Location" />
+      <JFXButton fx:id="searchBut" buttonType="RAISED" defaultButton="true" onAction="#searchWithLocation" ripplerFill="WHITE" style="-fx-background-color: #FAFAFA;" text="Search" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></JFXButton>
+            <JFXButton fx:id="refreshBut" buttonType="RAISED" defaultButton="true" layoutX="149.0" layoutY="13.0" onAction="#refreshList" ripplerFill="WHITE" style="-fx-background-color: #FAFAFA;" text="Refresh" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </JFXButton>
+        </items>
+      </ToolBar>
+      <ImageView fitHeight="56.0" fitWidth="70.0" layoutX="732.0" layoutY="14.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/back.png" />
+         </image>
+      </ImageView>
+      <JFXComboBox fx:id="sortCombo" layoutX="386.0" layoutY="188.0" onAction="#shortWith">
+      </JFXComboBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+user_adminPanel:
+    path:     /adminPanel
+    defaults: { _controller: UserBundle:Admin:Panel }
+user_adminPanelProperty:
+    path:     /propertyPanel
+    defaults: { _controller: UserBundle:Admin:panelProperty }
+user_adminPanelUser:
+    path:     /userPanel
+    defaults: { _controller: UserBundle:Admin:panelUser }
+user_adminPanelBooking:
+    path:     /bookingPanel
+    defaults: { _controller: UserBundle:Admin:panelBook }
+user_userpage:
+    path:     /home
+    defaults: { _controller: UserBundle:Default:userHome }
+admin_hideProp:
+    path:     /hideProp/{id}
+    defaults: { _controller: UserBundle:Admin:setHidden }
+admin_banUser:
+    path:     /banUser/{id}
+    defaults: { _controller: UserBundle:Admin:banned }

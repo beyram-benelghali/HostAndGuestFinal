@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="farm activities, itineraries, farm holidays, country holidays, bed and breakfast, hotel, country hotel">
+    <meta name="description" content="Country Holidays - Premium site template for a country accommodation.">
+    <meta name="author" content="Ansonika">
+    <title>Host and Guest - Welcome.</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{{ asset('front/img/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('front/img/apple-touch-icon-57x57-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('front/img/apple-touch-icon-72x72-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('front/img/apple-touch-icon-114x114-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('front/img/apple-touch-icon-144x144-precomposed.png') }}">
+
+
+    <!-- Google web fonts -->
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Varela+Round') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Lato:300,400,700') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Gochi+Hand') }}' rel='stylesheet' type='text/css'>
+
+    <!-- BASE CSS -->
+    <link href="{{ asset('front/css/base.css') }}" rel="stylesheet">
+
+    <!-- SPECIFIC CSS -->
+    <link href="{{ asset('front/css/slider-pro.min.css') }}" rel="stylesheet">
+
+
+
+    {% block styletemp %}
+    <style>
+
+    </style>
+    {% endblock styletemp %}
+
+</head>
+
+<body>
+
+
+<div id="preloader">
+    <div class="sk-spinner sk-spinner-wave">
+        <div class="sk-rect1"></div>
+        <div class="sk-rect2"></div>
+        <div class="sk-rect3"></div>
+        <div class="sk-rect4"></div>
+        <div class="sk-rect5"></div>
+    </div>
+</div>
+<!-- End Preload -->
+
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<!-- Header================================================== -->
+<header>
+    <div id="top_line">
+        <div class="container">
+                <ul id="top_links">
+                    {% block log %}
+                    {% if (user is not null) and ('ROLE_ADMIN' not in user.getRoles() ) %}
+
+                    <li><a href="#">{{ user }}</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                    {% else  %}
+                    <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                    {% endif %}
+                    {% endblock log %}
+                </ul>
+        </div><!-- End container-->
+    </div><!-- End top line-->
+
+    <div id="top_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div id="logo">
+                        <a href="#"><img src="{{ asset('front/img/logo.png') }}" width="240" height="40" alt="CountryHolidays" data-retina="true"></a>
+                    </div>
+                </div>
+                <nav class="col-md-8 col-sm-8 col-xs-8">
+                    <a class="cmn-toggle-switch cmn-toggle-switch__rot  open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                    <div class="main-menu">
+                        <div id="header_menu">
+                            <img src="{{ asset('front/img/logo.png') }}" width="240" height="40" alt="CountryHolidays" data-retina="true">
+                        </div>
+                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                        <ul>
+                            {% block propsmenu %}
+                                {% if (user is not null) and ('ROLE_ADMIN' not in user.getRoles() ) %}
+                                    <li class="submenu">
+                                        <a href="{{  app.request.getBaseURL()  }}" class="show-submenu">Home </a>
+                                    </li>
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+                                        <ul>
+
+                                            <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+                                            <li><a href="{{ path('property_mylistpage') }}">My Properties</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ path('booking_listBkn') }}">My Reservations</a></li>
+                                    <li><a href="{{ path('messaging_getuserlist') }}">Chat</a></li>
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+                                        <ul>
+                                            <li><a href="#">Nearby Events</a></li>
+                                            <li><a href="#">Search by Location</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{  app.request.getBaseURL()  }}#about">About</a></li>
+                                {% else  %}
+                                    <li class="submenu">
+                                        <a href="{{  app.request.getBaseURL()  }}" class="show-submenu">Home </a>
+                                    </li>
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+                                        <ul>
+                                            <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+                                        <ul>
+                                            <li><a href="#">Nearby Events</a></li>
+                                            <li><a href="#">Search by Location</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{  app.request.getBaseURL()  }}#about">About</a></li>
+
+                                {% endif %}
+
+
+                            {% endblock propsmenu %}
+                        </ul>
+                    </div><!-- End main-menu -->
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</header><!-- End Header -->
+{% block sectionName %}
+<section class="sub_header" id="bg_room">
+    <div class="sub_header_content">
+        <div class="animated fadeInDown">
+            <h1>Login to Host and Guest </h1>
+            <p style="color: white">
+                Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+            </p>
+        </div>
+    </div>
+</section><!-- End Section -->
+{% endblock sectionName %}
+
+<div class="container margin_60">
+    <div class="row">
+        <div class="col-lg-9 col-md-8" id="single_tour_desc">
+            {% block bodyContainer %}
+            {% endblock bodyContainer %}
+            <hr>
+            {% block listReviews %}
+            {% endblock listReviews %}
+        </div><!-- End col-lg-9 -->
+
+            {% block facilities %}
+            {% endblock facilities %}
+
+    </div><!-- End row -->
+</div><!-- End Container -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <h3>Contacts</h3>
+                <ul id="contact_details_footer">
+                    <li>Null Pointers<br> @ESPRIT</li>
+                    <li><a href="tel://004542344599">+(xxx)-xxx-xxx-xx</a> / <a href="tel://">+(xxx)-xxx-xxx-xx</a></li>
+                    <li><a href="mailto:NullPointers@Esprit.tn">NullPointers@Esprit.tn</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="{{  app.request.getBaseURL()  }}#about">About us</a></li>
+                    <li><a href="{{ path('property_allProp') }}">Properties</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <h3>RSS Feed</h3>
+                <a href="{{ path('property_feedProp') }}"><img width="50%"  height="50%" src="{{ asset('images/flux.png') }}"></a>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="social_footer">
+                    <p>© Host And Guest 2017</p>
+                </div>
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+</footer><!-- End footer -->
+
+{% block Addreviews %}
+{% endblock Addreviews %}
+<!-- Common scripts -->
+<script src="{{ asset('front/js/jquery-1.11.2.min.js') }}"></script>
+<script src="{{ asset('front/js/common_scripts_min.js') }}"></script>
+<script src="{{ asset('front/js/functions.js') }}"></script>
+<script src="{{ asset('front/site_launch/assets/validate.js') }}"></script>
+
+<!-- Specific scripts -->
+<script src="{{ asset('front/js/jquery.sliderPro.min.js') }}"></script>
+
+
+
+<script type="text/javascript">
+    $( document ).ready(function( $ ) {
+        $( '#Img_carousel' ).sliderPro({
+            width: 960,
+            height: 500,
+            fade: true,
+            arrows: true,
+            buttons: false,
+            fullScreen: false,
+            smallSize: 500,
+            startSlide: 0,
+            mediumSize: 1000,
+            largeSize: 3000,
+            thumbnailArrows: true,
+            autoplay: false
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

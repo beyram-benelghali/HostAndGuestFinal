@@ -1,0 +1,189 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Host and Guest - Admin Panel</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ asset('adminstyle/css/bootstrap.min.css') }}" >
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('adminstyle/css/sb-admin.css') }}" >
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" href="{{ asset('adminstyle/css/plugins/morris.css') }}" >
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="{{ asset('adminstyle/font-awesome/css/font-awesome.css') }}" >
+
+    <style>
+        @import url('http://fonts.googleapis.com/css?family=Amarante');
+
+        h1 {
+            font-family: 'Amarante', Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 3.6em;
+            line-height: 1.7em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+
+        ::selection { background: #5f74a0; color: #fff; }
+        ::-moz-selection { background: #5f74a0; color: #fff; }
+        ::-webkit-selection { background: #5f74a0; color: #fff; }
+
+
+
+
+        blockquote, q { quotes: none; }
+        blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+        strong, b { font-weight: bold; }
+
+
+
+        #keywords {
+            margin: 0 auto;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+
+        #keywords thead {
+            cursor: pointer;
+            background: #c9dff0;
+        }
+        #keywords thead tr th {
+            font-weight: bold;
+            padding: 12px 30px;
+            padding-left: 42px;
+        }
+        #keywords thead tr th span {
+            padding-right: 20px;
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+        }
+
+        #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+            background: #acc8dd;
+        }
+
+        #keywords thead tr th.headerSortUp span {
+            background-image: url('http://i.imgur.com/SP99ZPJ.png');
+        }
+        #keywords thead tr th.headerSortDown span {
+            background-image: url('http://i.imgur.com/RkA9MBo.png');
+        }
+
+
+        #keywords tbody tr {
+            color: #555;
+        }
+        #keywords tbody tr td {
+            text-align: center;
+            padding: 15px 10px;
+        }
+        #keywords tbody tr td.lalign {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Host and Guest - Admin Panel</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ admin }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li >
+                    <a href="{{ path('user_adminPanel') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ path('user_adminPanelProperty') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Property Manager</a>
+                </li>
+                <li>
+                    <a href="{{ path('user_adminPanelUser') }}"><i class="fa fa-fw fa-table"></i> User Manager</a>
+                </li>
+                <li class="active">
+                    <a href="{{ path('user_adminPanelBooking') }}"><i class="fa fa-fw fa-edit"></i> Booking Manager</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+
+
+            <div class="row" style="height: 100%;">
+                <h1>Bookings Manager</h1>
+                <div class="col-lg-4" style="width: 100%;height: 100%;" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> &nbsp; {{ nbBookings }} Bookings.</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table id="keywords" cellspacing="0" cellpadding="0">
+                                    <thead>
+                                    <tr>
+                                        <th><span>Booking Id</span></th>
+                                        <th><span>Booking Date</span></th>
+                                        <th><span>Host User</span></th>
+                                        <th><span>Guest User</span></th>
+                                        <th><span>Property</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr style="text-align: center">
+                                        {% for book in bookings %}
+                                        <td class="lalign" style="text-align:center;">{{ book.id }}</td>
+                                        <td>{{ book.bookingDate|date('Y-m-d') }}</td>
+                                        <td>{{ book.property.host.username }}</td>
+                                        <td>{{ book.guest.username }}</td>
+                                        <td ><a href="{{ path('property_detailProp',{'id':book.id}) }}"><img  src="{{ asset('images/link.png') }}" width="20%" height="20%"></a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script src="{{ asset('front/js/jquery-1.11.2.min.js') }}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+
+</html>

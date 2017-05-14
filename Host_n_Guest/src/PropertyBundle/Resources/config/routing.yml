@@ -1,0 +1,31 @@
+property_homepage:
+    path:     /
+    defaults: { _controller: PropertyBundle:Default:index }
+property_addpage:
+    path:     /addProperty
+    defaults: { _controller: PropertyBundle:Property:add }
+property_mylistpage:
+    path:     /myProperty
+    defaults: { _controller: PropertyBundle:Property:list }
+property_delProp:
+    path:     /delMyProperty/{id}
+    defaults: { _controller: PropertyBundle:Property:delete }
+property_updateProp:
+    path:     /updateMyProperty/{id}
+    defaults: { _controller: PropertyBundle:Property:update }
+property_detailProp:
+    path:     /detailProperty/{id}
+    defaults: { _controller: PropertyBundle:Property:getProperty }
+property_reportProp:
+    path:     /reportProperty/{id}
+    defaults: { _controller: PropertyBundle:Property:report }
+property_allProp:
+    path:     /allProperty
+    defaults: { _controller: PropertyBundle:Property:allRoom }
+property_searchProp:
+    path:     /searchProperty
+    defaults: { _controller: PropertyBundle:Property:searchProperty }
+property_feedProp:
+    path:     /feedProperty
+    defaults: { _controller: PropertyBundle:Property:feed }
+

@@ -1,0 +1,127 @@
+{# Knp total items count #}
+<div class="count">
+    Un Total de {{ reviews.getTotalItemCount }} Evaluations
+</div>
+
+{% for review in reviews %}
+    <div class="review_strip_single">
+        <img src="{{ asset('front/img/avatar2.jpg') }}" alt="" class="img-circle">
+        <small> Comment Date - {{ review.dateComment | date('d M Y') }} -</small>
+        <br />
+        <small> Booking Date - {{ review.booking.bookingDate | date('d M Y') }} -</small>
+        <h4>{{ review.booking.guest.getFirstName }} {{ review.booking.guest.getLastName }}</h4>
+        <p style="font-family:'Century Schoolbook',cursive; font-size: 150%">
+            {{ review.comment }}
+        </p>
+
+        <div class="row" id="rating_summary">
+            <div class="col-md-6">
+                <ul>
+                    <li>Price Quality
+                        <div class="rating">
+                            {% if review.priceQuality > 0 %}
+                                {% for  i in 1 .. review.priceQuality %}
+                                    <i class="icon-heart-8"></i>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if review.priceQuality < 5 %}
+                                {% for  i in review.priceQuality .. 4 %}
+                                    <i class="icon-heart-empty-4"></i>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li>Position
+                        <div class="rating">
+                            {% if review.lieu > 0 %}
+                                {% for  i in 1 .. review.lieu %}
+                                    <i class="icon-heart-8"></i>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if review.lieu < 5 %}
+                                {% for  i in review.lieu .. 4 %}
+                                    <i class="icon-heart-empty-4"></i>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li>Precision
+                        <div class="rating">
+                            {% if review.precision > 0 %}
+                                {% for  i in 1 .. review.precision %}
+                                    <i class="icon-heart-8"></i>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if review.precision < 5 %}
+                                {% for  i in review.precision .. 4 %}
+                                    <i class="icon-heart-empty-4"></i>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li>Communication
+                        <div class="rating">
+                            {% if review.communication > 0 %}
+                                {% for  i in 1 .. review.communication %}
+                                    <i class="icon-heart-8"></i>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if review.communication < 5 %}
+                                {% for  i in review.communication .. 4 %}
+                                    <i class="icon-heart-empty-4"></i>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li>
+
+                    </li>
+                    <li>Cleanliess
+                        <div class="rating">
+                            {% if review.cleanliness > 0 %}
+                                {% for  i in 1 .. review.cleanliness %}
+                                    <i class="icon-heart-8"></i>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% if review.cleanliness < 5 %}
+                                {% for  i in review.cleanliness .. 4 %}
+                                    <i class="icon-heart-empty-4"></i>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <ul>
+                    <li>
+
+                    </li>
+                    <li>
+                        {% if uid == review.booking.guest %}
+                            <th> <a href="{{ path('review_remove', {'rid' : review.id} ) }}">Supprimer</a> </th>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div><!-- End row -->
+    </div>
+{% endfor %}
+
+{# display navigation #}
+<div class="navigation text-center">
+    {{ knp_pagination_render(reviews) }}
+</div>

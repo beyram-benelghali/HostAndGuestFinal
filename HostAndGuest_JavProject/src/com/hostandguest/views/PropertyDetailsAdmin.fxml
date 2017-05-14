@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.views.PropertyDetailsAdminController">
+   <children>
+      <Label layoutX="37.0" layoutY="14.0" text="Nb roms :" />
+      <Label fx:id="lblNbrooms" layoutX="140.0" layoutY="14.0" text="Label" />
+      <Label layoutX="37.0" layoutY="55.0" text="Price : " />
+      <Label fx:id="lblPrice" layoutX="140.0" layoutY="55.0" text="Label" />
+      <Label layoutX="37.0" layoutY="102.0" text="Publication Date :" />
+      <Label fx:id="lblPublicationdate" layoutX="154.0" layoutY="102.0" text="Label" />
+      <Label layoutX="300.0" layoutY="23.0" text="Enabled :" />
+      <Label fx:id="lblenabled" layoutX="380.0" layoutY="23.0" text="Label" />
+      <Label layoutX="300.0" layoutY="72.0" text="Banned :" />
+      <Label fx:id="lblbanned" layoutX="380.0" layoutY="72.0" text="Label" />
+      <Hyperlink fx:id="Disable" layoutX="444.0" layoutY="52.0" text="Disable Property" />
+   </children>
+</Pane>

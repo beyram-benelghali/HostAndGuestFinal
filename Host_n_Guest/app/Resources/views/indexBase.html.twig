@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="farm activities, itineraries, farm holidays, country holidays, bed and breakfast, hotel, country hotel">
+    <meta name="description" content="Country Holidays - Premium site template for a country accommodation.">
+    <meta name="author" content="Ansonika">
+    <title>Host and Guest - Welcome.</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{{ asset('front/img/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('front/img/apple-touch-icon-57x57-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('front/img/apple-touch-icon-72x72-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('front/img/apple-touch-icon-114x114-precomposed.png') }}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('front/img/apple-touch-icon-144x144-precomposed.png') }}">
+
+    <!-- Google web fonts -->
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Varela+Round') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Lato:300,400,700') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('http://fonts.googleapis.com/css?family=Gochi+Hand') }}' rel='stylesheet' type='text/css'>
+
+    <!-- BASE CSS -->
+    <link href="{{ asset('front/css/base.css') }}" rel="stylesheet">
+
+    <!-- SPECIFIC CSS -->
+    <link href="{{ asset('front/css/date_time_picker.css') }}" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+<div id="preloader">
+    <div class="sk-spinner sk-spinner-wave">
+        <div class="sk-rect1"></div>
+        <div class="sk-rect2"></div>
+        <div class="sk-rect3"></div>
+        <div class="sk-rect4"></div>
+        <div class="sk-rect5"></div>
+    </div>
+</div>
+<!-- End Preload -->
+
+<div class="layer"></div>
+<!-- Mobile menu overlay mask -->
+
+<!-- Header================================================== -->
+{% block header_block %}
+<header>
+    <div id="top_line">
+        <div class="container">
+            {% block row_signin %}
+            <ul id="top_links">
+                <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+            </ul>
+            {% endblock row_signin %}
+        </div><!-- End container-->
+    </div><!-- End top line-->
+
+    <div id="top_header">
+        <div class="container">
+            {% block row_header %}
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div id="logo">
+                        <a href="#"><img src="{{ asset('front/img/logo.png') }}" width="240" height="40" alt="CountryHolidays" data-retina="true"></a>
+                    </div>
+                </div>
+                <nav class="col-md-8 col-sm-8 col-xs-8">
+                    <a class="cmn-toggle-switch cmn-toggle-switch__rot  open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                    <div class="main-menu">
+                        <div id="header_menu">
+                            <img src="img\logo.png" width="240" height="40" alt="CountryHolidays" data-retina="true">
+                        </div>
+                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                        <ul>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Home </a>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="#">Nearby Events</a></li>
+                                    <li><a href="#">Search by Location</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#about">About</a></li>
+                        </ul>
+                    </div><!-- End main-menu -->
+
+                </nav>
+            </div>
+            {% endblock row_header %}
+        </div>
+    </div>
+</header><!-- End Header -->
+{% endblock header_block %}
+<div id="booking_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="intro_title_booking">
+                    <h1 class="animated fadeInDown">Host and Guest pleasure</h1>
+                    <p class="animated fadeInDown">Properties / Country Events / Pleasure</p>
+                    <a href="{{ path('property_allProp') }}" class="animated fadeInUp button_intro hidden-xs">View Properties</a>
+                    <a href="#" class="animated fadeInUp button_intro outline hidden-xs">Events</a>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div id="book">
+                    <div id="message-booking"></div>
+                    <div role="form"   id="check_avail" autocomplete="off">
+                        <h4 style="color: white;font-weight: bold">What are you looking for ?</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input class="date-pick form-control" data-date-format="M d, D" type="text" id="check_in" name="check_in" placeholder="Date">
+                                    <span class="input-icon"><i class=" icon-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div><!-- End row -->
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>Price (TND) </label>
+                                    <div class="qty-buttons">
+                                        <input type="button" value="-" class="qtyminus" name="price">
+                                        <input type="text" name="price" id="price" value="" class="qty form-control" placeholder="0">
+                                        <input type="button" value="+" class="qtyplus" name="price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>Room Number</label>
+                                    <div class="qty-buttons">
+                                        <input type="button" value="-" class="qtyminus" name="nbroom">
+                                        <input type="text" name="nbroom" id="nbroom" value="" class="qty form-control" placeholder="0">
+                                        <input type="button" value="+" class="qtyplus" name="nbroom">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End row -->
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <button onclick="search();" value="Search and Book now" class="btn_full" id="submit-booking">Search and Book now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- End row -->
+    </div><!-- End container -->
+    <div id="general_decor"></div>
+</div><!-- End Booking container -->
+
+<div class="container margin_60 padd_bottom_20" id="about">
+    <div class="main_title">
+        <span></span>
+        <h2>We love Host and Guest</h2>
+        <p style="margin-top: 10px">
+            Find the perfect place to stay at an amazing price <b>Worldwide</b>  . Belong anywhere with Host and Guest..
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box_home">
+                <i class="icon_set_2_icon-104"></i>
+                <h3>Cozy and Charming rooms</h3>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box_home">
+                <i class="icon_set_2_icon-108"></i>
+                <h3>Relax in a beautiful contest</h3>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box_home">
+                <i class="icon_set_1_icon-40"></i>
+                <h3>Enjoy country side activities</h3>
+
+            </div>
+        </div>
+    </div><!-- End row -->
+</div><!-- End container -->
+
+<div class="bg_gray add_bottom_60">
+    <div class="container">
+        <div class="row">
+            {% for log in listhome %}
+            <div class="col-md-4 col-sm-4">
+                <div class="img_zoom" style=" height:190px">
+                    <a href="{{ path('property_detailProp',{'id':log.id}) }}"><img  src="{{  app.request.getBaseURL()  }}Host_n_Guest{{ log.imagesPath[0]|replace({ 'web': '/web' }) }}" alt="" class="img-responsive"></a>
+                </div>
+                <h3>{{ log.location }} <span class="price_home">{{ log.price }} <em>TND</em></span></h3>
+                <p>
+                    {{ log.description|slice(0, 150) ~ '...'   }}
+                </p>
+                <p>
+                    <a href="{{ path('property_detailProp',{'id':log.id}) }}" class="btn_1">Read more</a>
+                </p>
+            </div>
+            {% endfor %}
+        </div><!-- End row -->
+    </div><!-- End container -->
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <h3>Contacts</h3>
+                <ul id="contact_details_footer">
+                    <li>Null Pointers<br> @ESPRIT</li>
+                    <li><a href="tel://004542344599">+(xxx)-xxx-xxx-xx</a> / <a href="tel://">+(xxx)-xxx-xxx-xx</a></li>
+                    <li><a href="mailto:NullPointers@Esprit.tn">NullPointers@Esprit.tn</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="{{  app.request.getBaseURL()  }}#about">About us</a></li>
+                    <li><a href="{{ path('property_allProp') }}">Properties</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <h3>RSS Feed</h3>
+           <a href="{{ path('property_feedProp') }}"><img width="50%"  height="50%" src="{{ asset('images/flux.png') }}"></a>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="social_footer">
+                    <p>© Host And Guest 2017</p>
+                </div>
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+</footer><!-- End footer -->
+
+<div id="toTop"></div><!-- Back to top button -->
+
+<!-- Common scripts -->
+<script src="{{ asset('front/js/jquery-1.11.2.min.js') }}"></script>
+<script src="{{ asset('front/js/common_scripts_min.js') }}"></script>
+<script src="{{ asset('front/js/functions.js') }}"></script>
+<script src="{{ asset('front/site_launch/assets/validate.js') }}"></script>
+
+
+<!-- Specific scripts -->
+<script src="{{ asset('front/js/quantity-bt.js') }}"></script>
+<script src="{{ asset('front/js/bootstrap-datepicker.js') }}"></script>
+<script>
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    var checkin = $('#check_in').datepicker({
+
+        todayHighlight: true,
+
+        beforeShowDay: function (date) {
+            return date.valueOf() >= now.valueOf();
+        },
+        autoclose: true
+
+    }).on('changeDate', function (ev) {
+        if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
+
+            var newDate = new Date(ev.date);
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.datepicker("update", newDate);
+
+        }
+        $('#check_out')[0].focus();
+    });
+
+
+    var checkout = $('#check_out').datepicker({
+        beforeShowDay: function (date) {
+            if (!checkin.datepicker("getDate").valueOf()) {
+                return date.valueOf() >= new Date().valueOf();
+            } else {
+                return date.valueOf() > checkin.datepicker("getDate").valueOf();
+            }
+        },
+        autoclose: true
+
+    }).on('changeDate', function (ev) {});
+    
+    function search() {
+        url_search = window.location.pathname+ "/property/searchProperty?";
+        price_val = $('input#price').val();
+        date_val = $('input#check_in').val();
+        location_val = $('input#location').val();
+        nbroom_val = $('input#nbroom').val();
+        if(price_val != ""){
+            url_search+="price="+price_val+"&";
+        }
+        if(date_val != ""){
+            url_search+="date="+date_val+"&";
+        }
+        if(location_val != ""){
+            url_search+="location="+location_val+"&";
+        }
+        if(nbroom_val != ""){
+            url_search+="nbroom" + nbroom_val+"&";
+        }
+        window.location.href = url_search;
+       // window.location.href = window.location.pathname+ "property/searchProperty/"+price_val
+        //  $('button#submit-booking').attr('href',wanted_href);
+    }
+</script>
+
+<script>
+
+    var autocomplete;
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('location')),
+                {types: ['geocode']});
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+        document.getElementById("location").value = place.formatted_address;
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0_Ny4Oi9eREZwceU1JDBXOKaybpKOYvM&signed_in=true&libraries=places&callback=initAutocomplete"
+        async defer></script>
+</body>
+</html>

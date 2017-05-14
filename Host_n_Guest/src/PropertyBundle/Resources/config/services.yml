@@ -1,0 +1,4 @@
+services:
+#    property.example:
+#        class: PropertyBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

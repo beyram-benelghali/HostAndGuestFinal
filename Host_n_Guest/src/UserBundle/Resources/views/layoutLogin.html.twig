@@ -1,0 +1,115 @@
+{% extends "tempBase.html.twig" %}
+    {% block styletemp %}
+    <style>
+
+        @media (min-width: 768px) {
+            .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+                margin-left: 25%;
+            }
+        }
+
+        .omb_login .omb_authTitle {
+            text-align: center;
+            line-height: 300%;
+        }
+
+        .omb_login .omb_socialButtons a {
+            color: white; // In yourUse @body-bg
+        opacity:0.9;
+        }
+        .omb_login .omb_socialButtons a:hover {
+            color: white;
+            opacity:1;
+        }
+        .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+        .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+        .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+
+
+        .omb_login .omb_loginOr {
+            position: relative;
+            font-size: 1.5em;
+            color: #aaa;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+        .omb_login .omb_loginOr .omb_hrOr {
+            background-color: #cdcdcd;
+            height: 1px;
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        .omb_login .omb_loginOr .omb_spanOr {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: -0.6em;
+            margin-left: -1.5em;
+            background-color: white;
+            width: 3em;
+            text-align: center;
+        }
+
+        .omb_login .omb_loginForm .input-group.i {
+            width: 2em;
+        }
+        .omb_login .omb_loginForm  .help-block {
+            color: red;
+        }
+
+
+        @media (min-width: 768px) {
+            .omb_login .omb_forgotPwd {
+                text-align: right;
+                margin-top:10px;
+            }
+        }
+    </style>
+{% endblock styletemp %}
+    {% block log %}
+        <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+        <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+    {% endblock log %}
+
+    {% block propsmenu %}
+        <li class="submenu">
+            <a href="{{  app.request.getBaseURL()  }}" class="show-submenu">Home </a>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+            <ul>
+
+                <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+            <ul>
+                <li><a href="#">Nearby Events</a></li>
+                <li><a href="#">Search by Location</a></li>
+            </ul>
+        </li>
+
+        <li><a href="{{  app.request.getBaseURL()  }}#about">About</a></li>
+    {% endblock propsmenu %}
+
+    {% block sectionName %}
+        <section class="sub_header" id="bg_room">
+            <div class="sub_header_content">
+                <div class="animated fadeInDown">
+                    <h1>Login to Host and Guest </h1>
+                    <p style="color: white">
+                        Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+                    </p>
+                </div>
+            </div>
+        </section><!-- End Section -->
+    {% endblock %}
+    {% block bodyContainer %}
+        {% block fos_user_content %}
+
+        {% endblock fos_user_content %}
+    {% endblock bodyContainer %}

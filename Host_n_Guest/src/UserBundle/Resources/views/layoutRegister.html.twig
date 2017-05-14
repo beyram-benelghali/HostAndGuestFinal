@@ -1,0 +1,58 @@
+{% extends "tempBase.html.twig" %}
+ {% block styletemp %}
+<style>
+    .colorgraph {
+        height: 5px;
+        border-top: 0;
+        background: #c4e17f;
+        border-radius: 5px;
+        background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    }
+</style>
+{% endblock styletemp %}
+    {% block log %}
+        <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+        <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+    {% endblock log %}
+    {% block propsmenu %}
+        <li class="submenu">
+            <a href="{{  app.request.getBaseURL()  }}" class="show-submenu">Home </a>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+            <ul>
+
+                <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+            <ul>
+                <li><a href="#">Nearby Events</a></li>
+                <li><a href="#">Search by Location</a></li>
+            </ul>
+        </li>
+        <li><a href="{{  app.request.getBaseURL()  }}#about">About</a></li>
+    {% endblock propsmenu %}
+    {% block sectionName %}
+        <section class="sub_header" id="bg_room">
+            <div class="sub_header_content">
+                <div class="animated fadeInDown">
+                    <h1>Register to Host and Guest </h1>
+                    <p style="color: white">
+                        Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+                    </p>
+                </div>
+            </div>
+        </section><!-- End Section -->
+    {% endblock %}
+    {% block bodyContainer %}
+        {% block fos_user_content %}
+
+        {% endblock fos_user_content %}
+    {% endblock bodyContainer %}
+

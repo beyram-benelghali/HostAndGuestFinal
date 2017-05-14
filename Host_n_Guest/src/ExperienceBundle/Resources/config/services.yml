@@ -1,0 +1,8 @@
+services:
+#    experience.example:
+#        class: ExperienceBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+   experience:
+       class: ExperienceBundle\Controller\ExperienceController
+       calls:
+                   - [ "setContainer", [ "@service_container" ] ]

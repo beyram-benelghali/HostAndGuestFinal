@@ -1,0 +1,49 @@
+review:
+    resource: "@ReviewBundle/Resources/config/routing.yml"
+    prefix:   /review
+
+booking:
+    resource: "@BookingBundle/Resources/config/routing.yml"
+    prefix:   /booking
+
+messaging:
+    resource: "@MessagingBundle/Resources/config/routing.yml"
+    prefix:   /messaging
+
+experience:
+    resource: "@ExperienceBundle/Resources/config/routing.yml"
+    prefix:   /experience
+
+property:
+    resource: "@PropertyBundle/Resources/config/routing.yml"
+    prefix:   /property
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+#HWIOAuthBundle routes
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+facebook_login:
+    path: /login/check-facebook
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /optional_routing_prefix

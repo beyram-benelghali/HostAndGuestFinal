@@ -1,0 +1,13 @@
+booking_addBkn:
+    path:     /add/{id_property}
+    defaults: { _controller: BookingBundle:Booking:addreservation }
+booking_listBkn:
+    path:     /afficher
+    defaults: { _controller: BookingBundle:Booking:listReservation }
+booking_deleteBkn:
+    path:     /delete/{reservation_id}
+    defaults: { _controller: BookingBundle:Booking:deleteReservation }
+booking_exportBkn:
+    path:     /export/{reservation_id}
+    defaults: { _controller: BookingBundle:Booking:returnPDFResponseFromHTML }
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorUpdateId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.views.UpdatePropertyController">
+   <children>
+      <ImageView fitHeight="169.0" fitWidth="801.0" opacity="0.75">
+         <image>
+            <Image url="@../../../resources/CaptureBG.PNG" />
+         </image>
+      </ImageView>
+      <Label graphicTextGap="0.0" layoutX="21.0" layoutY="168.0" prefHeight="58.0" prefWidth="321.0" text="Please update all required fields :" textFill="#f24e4e">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="26.0" layoutY="247.0" prefHeight="267.0" prefWidth="283.0">
+         <children>
+            <JFXTextField fx:id="RoomNb" focusColor="#09b6bc" labelFloat="true" onKeyReleased="#checkNumber" promptText="Room Number">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin></JFXTextField>
+            <JFXTextField fx:id="Location" focusColor="#09b6bc" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="Location">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="Price" focusColor="#09b6bc" labelFloat="true" layoutX="10.0" layoutY="35.0" onKeyReleased="#checkNumber" promptText="Price">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXButton fx:id="addPicButton" buttonType="RAISED" defaultButton="true" onAction="#AddPic" prefHeight="32.0" prefWidth="179.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Add Pictures ..." textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></JFXButton>
+         </children>
+      </VBox>
+      <VBox layoutX="387.0" layoutY="249.0" prefHeight="267.0" prefWidth="301.0">
+         <children>
+            <HBox prefHeight="39.0" prefWidth="301.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Equipment :" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="30.0" />
+                     </padding>
+                  </Label>
+                  <JFXCheckBox fx:id="tvCheck" text="TV">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></JFXCheckBox>
+                  <JFXCheckBox fx:id="KitchenCheck" text="Wifi">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></JFXCheckBox>
+                  <JFXCheckBox fx:id="WifiCheck" text="Kitchen">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></JFXCheckBox>
+               </children>
+            </HBox>
+            <JFXTextArea fx:id="Description" prefHeight="100.0" prefWidth="200.0" promptText="Description">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </JFXTextArea>
+         </children>
+      </VBox>
+      <JFXButton fx:id="savePropButton" buttonType="RAISED" defaultButton="true" layoutX="571.0" layoutY="483.0" onAction="#saveProp" prefHeight="32.0" prefWidth="179.0" ripplerFill="WHITE" style="-fx-background-color: #81BDA4;" text="Save Changes" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="56.0" fitWidth="70.0" layoutX="732.0" layoutY="14.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

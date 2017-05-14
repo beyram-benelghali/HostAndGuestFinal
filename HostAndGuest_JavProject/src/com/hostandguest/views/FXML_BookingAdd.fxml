@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.services.FXML_BookingAddController">
+   <children>
+      <Pane layoutX="126.0" layoutY="34.0" prefHeight="429.0" prefWidth="477.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Line endX="300.0" layoutX="87.0" layoutY="71.0" startX="100.0" />
+            <Label alignment="CENTER" layoutX="187.0" layoutY="19.0" prefHeight="45.0" prefWidth="201.0" text="Réserver" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="160.0" text="Date réservation :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="225.0" text="Terme de la réservation  :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="283.0" text="Nombre de chambres     :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="336.0" text="Numéro carte bancaire   :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="140.0" fitWidth="559.0" layoutX="1.0" opacity="0.49" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../../../resources/bookin.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnGift" buttonType="RAISED" layoutX="100.0" layoutY="420.0" ripplerFill="#971b1b" style="-fx-background-color: #bb2828;" text="Offrir au premier venu" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnsubmit" buttonType="RAISED" layoutX="357.0" layoutY="420.0" ripplerFill="#bb2828" style="-fx-background-color: #bb2828;" text="Réserver" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="txtterme" layoutX="299.0" layoutY="203.0" prefHeight="44.0" prefWidth="248.0" />
+            <JFXTextField fx:id="txtnbrchambre" layoutX="299.0" layoutY="268.0" prefHeight="44.0" prefWidth="248.0" />
+            <JFXTextField fx:id="txtbancaire" layoutX="299.0" layoutY="329.0" prefHeight="44.0" prefWidth="248.0" />
+            <DatePicker fx:id="datepk" layoutX="299.0" layoutY="161.0" prefHeight="28.0" prefWidth="248.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

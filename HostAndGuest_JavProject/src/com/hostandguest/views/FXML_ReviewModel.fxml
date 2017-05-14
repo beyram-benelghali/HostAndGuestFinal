@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="209.0" prefWidth="497.0" styleClass="modelCell" stylesheets="@../../../resources/listview.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.services.FXML_ReviewModelController">
+   <children>
+      <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/avatar.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblUserName" layoutX="14.0" layoutY="57.0" text="user name" />
+      <Label fx:id="lblCommendDate" layoutX="275.0" layoutY="15.0" text="Comment Date - year month day" />
+      <Label fx:id="lblBookingDate" layoutX="280.0" layoutY="34.0" text="Booking Date - year month day" />
+      <Label fx:id="lblComment" layoutX="14.0" layoutY="78.0" prefHeight="45.0" prefWidth="441.0" text="Comment" />
+      <Label layoutX="14.0" layoutY="128.0" text="Price Quality" />
+      <ImageView fx:id="PQRate_1" fitHeight="17.0" fitWidth="14.0" layoutX="92.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PQRate_2" fitHeight="17.0" fitWidth="14.0" layoutX="116.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PQRate_3" fitHeight="17.0" fitWidth="14.0" layoutX="140.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PQRate_4" fitHeight="17.0" fitWidth="14.0" layoutX="163.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PQRate_5" fitHeight="14.0" fitWidth="45.0" layoutX="186.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="152.0" text="Position" />
+      <Label layoutX="14.0" layoutY="177.0" text="Cleanliess" />
+      <Label layoutX="241.0" layoutY="129.0" text="Precision" />
+      <Label layoutX="241.0" layoutY="152.0" text="Communication" />
+      <ImageView fx:id="PosRate_1" fitHeight="17.0" fitWidth="14.0" layoutX="91.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PosRate_2" fitHeight="17.0" fitWidth="14.0" layoutX="115.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PosRate_3" fitHeight="17.0" fitWidth="14.0" layoutX="139.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PosRate_4" fitHeight="17.0" fitWidth="14.0" layoutX="162.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PosRate_5" fitHeight="14.0" fitWidth="45.0" layoutX="185.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CleanRate_1" fitHeight="17.0" fitWidth="14.0" layoutX="91.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CleanRate_2" fitHeight="17.0" fitWidth="14.0" layoutX="115.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CleanRate_3" fitHeight="17.0" fitWidth="14.0" layoutX="139.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CleanRate_4" fitHeight="17.0" fitWidth="14.0" layoutX="162.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CleanRate_5" fitHeight="14.0" fitWidth="45.0" layoutX="185.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PrRate_1" fitHeight="17.0" fitWidth="14.0" layoutX="339.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PrRate_2" fitHeight="17.0" fitWidth="14.0" layoutX="363.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PrRate_3" fitHeight="17.0" fitWidth="14.0" layoutX="387.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PrRate_4" fitHeight="17.0" fitWidth="14.0" layoutX="410.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="PrRate_5" fitHeight="14.0" fitWidth="45.0" layoutX="433.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ComRate_1" fitHeight="17.0" fitWidth="14.0" layoutX="339.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ComRate_2" fitHeight="17.0" fitWidth="14.0" layoutX="363.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ComRate_3" fitHeight="17.0" fitWidth="14.0" layoutX="387.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ComRate_4" fitHeight="17.0" fitWidth="14.0" layoutX="410.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ComRate_5" fitHeight="14.0" fitWidth="45.0" layoutX="433.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/star_empty.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="170.0" fitWidth="23.0" layoutX="470.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/satif_gauge_no_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="satifGauge" fitHeight="14.0" fitWidth="7.0" layoutX="467.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/gauge_no_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="moodFace" fitHeight="23.0" fitWidth="27.0" layoutX="469.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/pokerface.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblSatisfactionLevel" layoutX="459.0" layoutY="163.0" text="X" />
+      <JFXButton fx:id="deleteReview" buttonType="RAISED" layoutX="377.0" layoutY="177.0" ripplerFill="#c105ff" style="-fx-background-color: #972ac9;" text="Supprimer" textFill="WHITE" />
+      <JFXButton fx:id="linkPlayVideo" buttonType="RAISED" layoutX="299.0" layoutY="177.0" ripplerFill="#c105ff" style="-fx-background-color: #972ac9;" text="Play Video" textFill="WHITE" />
+   </children>
+</AnchorPane>

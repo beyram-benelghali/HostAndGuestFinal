@@ -1,0 +1,92 @@
+{% extends "indexBase.html.twig" %}
+{% block header_block %}
+<header>
+
+
+    <script src="{{ asset('front/js/jquery-1.11.2.min.js') }}"></script>
+
+    <div id="top_line">
+        <div class="container">
+            {% block row_signin %}
+            <ul id="top_links">
+                <li><a href="#">{{ user }}</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+            </ul>
+                <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+                <script>
+                    var OneSignal = window.OneSignal || [];
+                    OneSignal.push(["init", {
+                        appId: "076081d3-cbe8-4fed-925a-b09d50ecb266",
+                        autoRegister: true, /* Set to true to automatically prompt visitors */
+                        subdomainName: 'https://hostnguest.onesignal.com',
+                        /*
+                         subdomainName: Use the value you entered in step 1.4: http://imgur.com/a/f6hqN
+                         */
+                        httpPermissionRequest: {
+                            enable: true
+                        },
+                        notifyButton: {
+                            enable: true /* Set to false to hide */
+                        }
+                    }]);
+
+                    OneSignal.push(function() {
+                        /* These examples are all valid */
+                        OneSignal.sendTag("userid", {{ user.id }});
+                        // location.replace('http://ed289536.ngrok.io/PhpstormProjects/Host_n_Guest/web/app_dev.php/');
+                    });
+                </script>
+                {% include 'chatDiv.html.twig' %}
+            {% endblock row_signin %}
+        </div><!-- End container-->
+    </div><!-- End top line-->
+
+    <div id="top_header">
+        <div class="container">
+            {% block row_header %}
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div id="logo">
+                            <a href="#"><img src="{{ asset('front/img/logo.png') }}" width="240" height="40" alt="CountryHolidays" data-retina="true"></a>
+                        </div>
+                    </div>
+                    <nav class="col-md-8 col-sm-8 col-xs-8">
+                        <a class="cmn-toggle-switch cmn-toggle-switch__rot  open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                        <div class="main-menu">
+                            <div id="header_menu">
+                                <img src="img\logo.png" width="240" height="40" alt="CountryHolidays" data-retina="true">
+                            </div>
+                            <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                            <ul>
+                                <li class="submenu">
+                                    <a href="{{  app.request.getBaseURL()  }}" class="show-submenu">Home </a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0);" class="show-submenu">Properties <i class="icon-down-open-mini"></i></a>
+                                    <ul>
+                                        <li><a href="{{ path('property_allProp') }}">Property List</a></li>
+                                        <li><a href="{{ path('property_mylistpage') }}">My Properties</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ path('booking_listBkn') }}">My Reservations</a></li>
+                                <li><a href="{{ path('messaging_getuserlist') }}">Chat</a></li>
+                                <li class="submenu">
+                                    <a href="javascript:void(0);" class="show-submenu">Events <i class="icon-down-open-mini"></i></a>
+                                    <ul>
+                                        <li><a href="#">Nearby Events</a></li>
+                                        <li><a href="#">Search by Location</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{  app.request.getBaseURL()  }}#about">About</a></li>
+                            </ul>
+                        </div><!-- End main-menu -->
+
+                    </nav>
+                </div>
+            {% endblock row_header %}
+        </div>
+    </div>
+</header><!-- End Header -->
+
+
+{% endblock header_block %}

@@ -1,0 +1,36 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    echo "<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "076081d3-cbe8-4fed-925a-b09d50ecb266",
+            autoRegister: false, /* Set to true to automatically prompt visitors */
+            subdomainName: 'https://hostnguest.onesignal.com',
+            /*
+             subdomainName: Use the value you entered in step 1.4: http://imgur.com/a/f6hqN
+             */
+            httpPermissionRequest: {
+                enable: true
+            },
+            notifyButton: {
+                enable: true /* Set to false to hide */
+            }
+        }]);
+
+        OneSignal.push(function() {
+            /* These examples are all valid */
+            OneSignal.sendTag("userid", {{ user.id }});
+                location.replace('http://ed289536.ngrok.io/PhpstormProjects/Host_n_Guest/web/app_dev.php/');
+        });
+    </script>";
+
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock fos_user_content %}

@@ -1,0 +1,75 @@
+{% extends "tempBase.html.twig" %}
+
+{% block sectionName %}
+    <section class="sub_header" id="bg_room">
+        <div class="sub_header_content">
+            <div class="animated fadeInDown">
+                <h1>Ajouter Reservation</h1>
+                <p style="color: white">
+                    Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+                </p>
+            </div>
+        </div>
+    </section><!-- End Section -->
+{% endblock sectionName %}
+
+
+{% block bodyContainer %}
+    <div class="container margin_60">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box_style_1" id="book_in">
+                    <h3>Reserver</h3>
+                    <div id="message-booking"></div>
+                    {{ form_start(frmAddbkn) }}
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Date Reservation</label>
+                                        {{ form_widget(frmAddbkn.bookingDate, { 'attr': { 'class': 'date-pick form-control', 'id' : 'check_in', 'placeholder' : 'Check in', 'data-date-format' : 'M d, D' } }) }}
+                                    <span class="input-icon"><i class=" icon-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                            </div>
+                        </div><!-- End row -->
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                            </div>
+                        </div><!-- End row -->
+                        <div class="row">
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Terme de la reservation</label>
+                                    {{ form_widget(frmAddbkn.term, { 'attr': {'class': 'form-control', 'id' : 'name_booking', 'placeholder' : 'Duree' } }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Nombre de Chambres</label>
+                                    {{ form_widget(frmAddbkn.nbReservedRooms, { 'attr': {'class': 'form-control', 'id' : 'name_booking', 'placeholder' : 'Nombre Chambres' } }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Numero Carte Bancaire</label>
+                                    {{ form_widget(frmAddbkn.card_number, { 'attr': {'class': 'form-control', 'id' : 'name_booking', 'placeholder' : 'Numero Carte' } }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    {{ form_widget(frmAddbkn.Reserver, { 'attr': {'class': 'btn_full', 'id' : 'submit-booking'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                    {{ form_end(frmAddbkn) }}
+                </div>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

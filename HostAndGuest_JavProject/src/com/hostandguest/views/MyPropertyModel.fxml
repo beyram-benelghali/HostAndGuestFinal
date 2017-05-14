@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.views.MyPropertyModelController">
+   <children>
+      <ImageView fx:id="imageProp" fitHeight="200.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="location" alignment="TOP_LEFT" layoutX="293.0" layoutY="64.0" prefHeight="17.0" prefWidth="195.0" text="Label" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="description" alignment="TOP_LEFT" layoutX="293.0" layoutY="93.0" prefHeight="101.0" prefWidth="270.0" text="Label" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="price" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="296.0" layoutY="23.0" prefHeight="10.0" prefWidth="188.0" text="Label" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <JFXButton fx:id="detailButton" buttonType="RAISED" defaultButton="true" layoutX="587.0" layoutY="77.0" onAction="#detailButtonClick" prefHeight="32.0" prefWidth="159.0" ripplerFill="WHITE" style="-fx-background-color: #009688;" text="Details" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="updateButton" buttonType="RAISED" defaultButton="true" layoutX="587.0" layoutY="134.0" onAction="#updateButtonClick" prefHeight="32.0" prefWidth="159.0" ripplerFill="WHITE" style="-fx-background-color: #FF9800;" text="Update" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteButton" buttonType="RAISED" defaultButton="true" layoutX="587.0" layoutY="16.0" onAction="#deleteButtonClick" prefHeight="32.0" prefWidth="159.0" ripplerFill="WHITE" style="-fx-background-color: #F44336;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

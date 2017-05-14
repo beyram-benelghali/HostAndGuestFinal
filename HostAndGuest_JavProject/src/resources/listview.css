@@ -1,0 +1,64 @@
+.reviewListview .scroll-bar:horizontal .track,
+.reviewListview .scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius:2em;
+}
+ 
+.reviewListview .scroll-bar:horizontal .increment-button ,
+.reviewListview .scroll-bar:horizontal .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 0 10 0;
+}
+ 
+.reviewListview .scroll-bar:vertical .increment-button ,
+.reviewListview .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+.reviewListview  .scroll-bar .increment-arrow,
+.reviewListview  .scroll-bar .decrement-arrow{
+    -fx-shape:" ";
+    -fx-padding:0;
+}
+ 
+.reviewListview .scroll-bar:horizontal .thumb,
+.reviewListview .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(black,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}
+
+.reviewListview .jfx-list-cell:selected {
+    -fx-background-color:#6600ff;
+}
+
+.reviewListview .jfx-list-cell:selected .button {
+    -fx-background-color: #6666ff;
+    -fx-text-fill: white;
+}
+
+.reviewListview .jfx-list-cell {
+    -fx-background-insets: 0.0;
+}
+
+.reviewListview .jfx-list-cell .jfx-rippler {
+    -fx-rippler-fill: RED;
+}
+
+.reviewListview .jfx-list-cell:hover {
+    -fx-background-color: #cc99ff
+}
+
+.modelCell:hover .label {
+    -fx-text-fill: black;
+}
+
+.reviewListview {
+    -fx-background-insets: 0;
+    -jfx-cell-vertical-margin : 10.0;
+    -jfx-vertical-gap: 10;
+}

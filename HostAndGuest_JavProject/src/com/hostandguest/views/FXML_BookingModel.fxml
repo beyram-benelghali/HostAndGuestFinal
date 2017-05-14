@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="219.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.services.FXML_BookingModelController">
+   <children>
+      <ImageView fitHeight="126.0" fitWidth="128.0" layoutX="25.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../resources/userProfilePicture.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblUserName" layoutX="60.0" layoutY="154.0" text="User name" />
+      <Label fx:id="lblBknDate" layoutX="204.0" layoutY="26.0" text="Booking Date On : " />
+      <Label fx:id="lblBknTerm" layoutX="203.0" layoutY="128.0" text="Booking Term : " />
+      <Label fx:id="lblNbRooms" layoutX="203.0" layoutY="60.0" text="Number of Reserved Rooms : " />
+      <Label fx:id="lblPrice" layoutX="203.0" layoutY="97.0" text="Price : " />
+      <Line endX="100.0" layoutX="220.0" layoutY="197.0" startX="-100.0" />
+      <JFXButton fx:id="btnAcquireGift" buttonType="RAISED" layoutX="362.0" layoutY="109.0" prefHeight="25.0" prefWidth="101.0" ripplerFill="#36dd65" style="-fx-background-color: #36dd65;" text="Acquire Gift" />
+      <JFXButton fx:id="btnUpdateBooking" layoutX="362.0" layoutY="133.0" prefHeight="25.0" prefWidth="101.0" ripplerFill="#a5e839" style="-fx-background-color: #94d035;" text="Update" />
+      <JFXButton fx:id="btnAnnuler" layoutX="187.0" layoutY="159.0" prefHeight="25.0" prefWidth="70.0" ripplerFill="#ff2d2d" style="-fx-background-color: #da1e1e;" text="Annuler" textFill="WHITE" />
+      <JFXButton fx:id="btnExportPDF" buttonType="RAISED" layoutX="362.0" layoutY="159.0" prefHeight="25.0" prefWidth="101.0" ripplerFill="#ffcb3c" style="-fx-background-color: #e7bc3d;" text="Export To PDF" />
+      <JFXButton fx:id="btnToProperty" buttonType="RAISED" layoutX="259.0" layoutY="159.0" prefHeight="25.0" prefWidth="101.0" ripplerFill="#fba64a" style="-fx-background-color: #d38d42;" text="Show Property" />
+   </children>
+</AnchorPane>

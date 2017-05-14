@@ -1,0 +1,126 @@
+{% block sort_review %}
+    {% block javascripts %}
+        {# check main call for this where it calls scripts for the script call #}
+    {% endblock %}
+
+    {% block style_checkboxes %}
+        <style>
+            html {
+                font-size: 14px;
+                background-color: #fff;
+                font-family: 'Arial';
+            }
+
+            input {
+                display: none;
+            }
+
+            fieldset {
+                float: left;
+                border-color: #707070;
+                padding: 1rem;
+                margin: 1rem;
+                width: 15rem;
+            }
+            fieldset legend {
+                color: #a1c52b;
+                padding: 0 0.5rem;
+                line-height: 1rem;
+                font-size: 1rem;
+                box-shadow: inset -1px 0 0 #707070, inset 1px 0 0 #707070;
+            }
+            fieldset .pseudo_input {
+                float: left;
+                width: 100%;
+                margin: 0;
+                box-sizing: border-box;
+                padding: 0 0.5rem;
+                height: 2rem;
+                line-height: 2rem;
+                text-decoration: none;
+                text-align: right;
+                text-transform: uppercase;
+                cursor: pointer;
+                background-image: url(http://www.wapppictures.com/wp-content/uploads/2015/05/Whatsapp-single-grey-tick.jpg);
+                background-repeat: no-repeat;
+                color: #fff;
+                background-color: #707070;
+                box-shadow: inset 1rem 0 0 #a1c52b;
+                background-position: -1.5rem 50%;
+                background-size: auto 120%;
+                transition: all 400ms ease-in-out;
+                /*&:hover {
+                    color: $c4;
+                    background-color: $c1;
+                    box-shadow: inset $unit 0 0 $c2;
+                }*/
+            }
+            fieldset .pseudo_input.active {
+                color: #fff;
+                box-shadow: inset 0.5rem 0 0 #707070;
+                background-color: #a1c52b;
+                background-position: 1rem 50%;
+                background-size: auto 60%;
+            }
+            fieldset .pseudo_input:not(:first-child) {
+                margin-top: 0.5rem;
+            }
+            fieldset .pseudo_input.checkbox {
+                /*width: calc( 50% - $unit / 2 );*/
+                /* Why this is not working? */
+                width: calc( 90% - .25rem );
+            }
+            fieldset .pseudo_input.checkbox:nth-child(2n) {
+                clear: left;
+                margin-right: 0.5rem;
+            }
+        </style>
+    {% endblock %}
+
+    {% block form_content %}
+        {#
+            action call below is needd because Knp resets the query everytime he changes the page
+         #}
+        <form name="sortByForm" method="post" action="{{ path('property_detailProp', {'id' : pid}) }}">
+
+            {# Above CSS uses display:none to keep all input hidden #}
+
+            <input type="radio" id="asc" name="orderLevel" value="asc" {% if app.session.get('orderLevel') != null %} checked {% endif %} />
+            <input type="radio" id="desc" name="orderLevel" value="desc" />
+
+            <input type="checkbox" id="dateComment" name="dateComment" value="dateComment" {% if app.session.get('dateComment') != null %} checked {% endif %} />
+            <input type="checkbox" id="price_quality" name="price_quality" value="price_quality" {% if app.session.get('price_quality') != null %} checked {% endif %} />
+            <input type="checkbox" id="lieu" name="lieu" value="lieu" {% if app.session.get('lieu') != null %} checked {% endif %} />
+            <input type="checkbox" id="precision" name="precision" value="precision" {% if app.session.get('precision') != null %} checked {% endif %} />
+            <input type="checkbox" id="communication" name="communication" value="communication" {% if app.session.get('communication') != null %} checked {% endif %} />
+            <input type="checkbox" id="cleanliness" name="cleanliness" value="cleanliness" {% if app.session.get('cleanliness') != null %} checked {% endif %} />
+
+            <fieldset>
+                <legend>Ordonnancement</legend>
+                <div class="pseudo_input radio" data-for-id="asc">Ascendant</div>
+                <div class="pseudo_input radio" data-for-id="desc">Descendant</div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ordonner Suivant</legend>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="dateComment">Date</div>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="price_quality">Qualité Prix</div>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="lieu">Lieu</div>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="precision">Precision</div>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="communication">Communication</div>
+                <div href="javascript:;" class="pseudo_input checkbox" data-for-id="cleanliness">Propreté</div>
+            </fieldset>
+
+            <!--
+                added below <br /> due to view not considering form content actual size
+                it considers the default checkbox sizes not the modified ones
+            -->
+
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br />
+            <input type="submit" class="btn_1 add_bottom_15" value="Trier" name="submitSortForm"/>
+        </form>
+    {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "tempBase.html.twig" %}
+
+{% block bodyContainer %}
+    {% if logement is empty %}
+        <img style="margin-top:30px;margin-left: 200px" src="{{ asset('images/uploads/noP.png') }}">
+    {% endif %}
+    {% for log in logement %}
+        <div class="strip_all_rooms_list wow fadeIn" data-wow-delay="0.1s">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="img_list">
+                        <a href="{{ path("property_detailProp", {"id":log.id}) }}"><img src="{{ log.imagesPath[0] }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="clearfix visible-xs-block">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="rooms_list_desc">
+                        <h3><strong>{{ log.location }}</strong> Property - {{ loop.index }}</h3>
+                        <p>
+                            {{ log.description }}
+                        </p>
+                        <ul class="add_info">
+                            {% for eq in log.equipements %}
+                                <li><img height="20px" width="20px" src="{{ asset('images/icplus.png')  }}" ><b>{{ eq }}</b></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="price_list">
+                        <div>
+                            <sup>TND</sup>{{ log.price }}<span class="normal_price_list"></span><small>*/Per night</small>
+                            <p>
+                                <a href="{{ path("property_detailProp", {"id":log.id}) }}" class="btn_1">Details</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--End strip -->
+    {% endfor %}
+{% endblock bodyContainer %}

@@ -1,0 +1,219 @@
+{% extends "tempBase.html.twig" %}
+
+    {% block styletemp %}
+
+    {% endblock styletemp %}
+
+    {% block sectionName %}
+        <section class="sub_header" id="bg_room">
+            <div class="sub_header_content">
+                <div class="animated fadeInDown">
+                    <h1>Property Details </h1>
+                    <p style="color: white">
+                        Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+                    </p>
+                </div>
+            </div>
+        </section><!-- End Section -->
+    {% endblock sectionName %}
+
+    {% block bodyContainer %}
+
+        <div id="Img_carousel" class="slider-pro">
+            <div class="sp-slides">
+
+
+                {% for img in logement.imagesPath %}
+                    <div class="sp-slide">
+                        <img alt="" class="sp-image" src="../{{ img }}" data-src="../{{ img }}">
+                        <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-horizontal="5%" data-vertical="5%" data-width="90%" data-show-transition="up" data-show-delay="400">
+                            Picture - {{ loop.index }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="sp-thumbnails">
+                {% for img in logement.imagesPath %}
+                    <img alt="" class="sp-thumbnail" src="../{{ img }}">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="single_room_feat">
+            <ul>
+                {% for eq in logement.equipements %}
+                    <li><img height="50px" width="50px" src="{{ asset('images/icplus.png')  }}" ><b>{{ eq }}</b></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Description</h3>
+            </div>
+            <div class="col-md-9">
+                <p>
+                    {{ logement.description }} <br>
+                    <b>Location : </b> {{ logement.location }}
+                </p>
+
+
+                <h4>Room Price</h4>
+                <!-- start pricing table -->
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>With Experience</td>
+                        <td>{{ logement.price }} TND</td>
+                    </tr>
+                    <tr>
+                        <td>Without Experience</td>
+                        <td>{{ logement.price }} TND</td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% if logement.host == uid %}
+                    <a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#addExp">Add Experience</a>
+                {% endif %}
+                <a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#loadExps">Load Experiences</a>
+            </div><!-- End col-md-9  -->
+        </div><!-- End row  -->
+
+
+
+    {% endblock bodyContainer %}
+
+    {% block listReviews %}
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Reviews</h3>
+                <a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#myReview">Leave a review</a>
+                <a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#sortingForm">Sort Reviews</a>
+            </div>
+            <div class="col-md-9">
+                {#<div id="score_detail"><span>7.5</span>Good <small>(Based on 34 reviews)</small></div><!-- End general_rating -->#}
+                <!-- <div id="score_detail"><span>7.5</span>Good <small>(Based on 34 reviews)</small></div><!-- End general_rating -->
+
+                {% block comments %}
+                    {% include '@Review/Review/get.html.twig' with {'reviews' : reviews, 'uid' : uid} %}
+                {% endblock %}
+
+            </div><!-- End review strip -->
+            <!-- Modal Review -->
+
+            <div class="modal fade" id="sortingForm" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myReviewLabel">Paramétrer Le Tri</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% block sort_review %}
+                                {% include '@Review/Review/sortForm.html.twig' with {'pid' : logement.id} %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myReviewLabel">Write your review</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% block add_review %}
+                                {% include '@Review/Review/add.html.twig' with {'review_add_form' : add_review} %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# experience area #}
+            <div class="modal fade" id="addExp" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myReviewLabel">Add An Experience</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% block add_experience %}
+                                {% include '@Experience/Experience/AddExperience.html.twig' with {'experience_frm_add' : experience_frm_add} %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="loadExps" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myReviewLabel">Property Offered Experiences</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% block experiences %}
+                                {% include '@Experience/Experience/Affichage.html.twig' with {'experiences' : experiences, 'uid' : uid} %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    {% endblock listReviews %}
+
+    {% block facilities %}
+        <div class="col-lg-3 col-md-4">
+            <div class="box_style_1" id="general_facilities">
+                <h3>General facilities</h3>
+                <ul>
+                    {% for eq in logement.equipements %}
+                        <li ><img height="30px" width="30px" src="{{ asset('images/badge.png')  }}" ><b>{{ eq }}</b></li>
+                    {% endfor %}
+                </ul>
+                <a onclick="alertReport()" href="javascript:void(0)"><img style="width: 50px;width: 50px" src="{{ asset('images/report.png') }}"><b style="color: red">&nbsp; Report Property </b></a>
+                <script>
+                    function alertReport() {
+                        var txt;
+                        var r = confirm("Are you sure to report this property !");
+                        if (r == true) {
+                            window.location.href="{{ path('property_reportProp',{'id':logement.id}) }}";
+                        }
+                    }
+                </script>
+            </div>
+            <div class=" box_style_2">
+                <a onclick="alertBook()" href="#"><span style="font-size: 15px;font-weight: bold">Amazing.. ? Book Now !</span></a>
+                <a onclick="alertBook()" href="#"><img style="width: 70px;width: 70px" src="{{ asset('images/book.png') }}"></a>
+                <script>
+                    function alertBook() {
+                        window.location.href="{{ path('booking_addBkn',{'id_property':logement.id}) }}";
+                    }
+                </script>
+            </div>
+            <div class=" box_style_2">
+                <a onclick="setUserId({{ logement.host.id }})" href="#"><span style="font-size: 15px;font-weight: bold">Contact Host : {{ logement.host }}  </span></a>
+                <a href="#" onclick="setUserId({{ logement.host.id }})"><img style="width: 70px;width: 70px" src="{{ asset('images/iconchat.png') }}"></a>
+
+            </div>
+            {# Note : Requires Active Connection #}
+            <div class=" box_style_2">
+                {{ getFacebookLikeButton() }} <hr />
+                {{ getTwitterButton() }} <hr />
+                {{ getGoogleplusButton() }}
+            </div>
+        </div>
+        {% if user is not null %}
+        {% include 'chatDiv.html.twig' %}
+         {% endif %}
+    {% endblock facilities %}

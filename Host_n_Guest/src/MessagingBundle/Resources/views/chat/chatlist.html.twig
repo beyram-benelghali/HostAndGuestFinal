@@ -1,0 +1,45 @@
+{% extends "tempBase.html.twig" %}
+
+    {% block styletemp %}
+        <script type="text/javascript">
+            var idUser = null;
+            function setUserId(userId) {
+                idUser = userId;
+                loadConversation();
+            }
+            function  loadConversation() {
+                $.ajax({url: "{{path('messaging_get') }}",data: {userId : idUser},  success: function(result){
+                    $("#messageContainer").html(result);
+                    $("#chatusername").text($("#username").text());
+                    $("#messageContainer").scrollTop($("#messageContainer")[0].scrollHeight);
+                    setInterval(function(){ getMessages(); }, 5000);
+                   /* $("#messageContainer").animate({
+                        scrollTop: $("#chatBottom").offset().top
+                    }, 1000);*/
+                }});
+            }
+
+        </script>
+    {% endblock styletemp %}
+
+    {% block sectionName %}
+        <section class="sub_header" id="bg_room">
+            <div class="sub_header_content">
+                <div class="animated fadeInDown">
+                    <h1>Chat</h1>
+                    <p style="color: white">
+                        Host and Guest permet à des particuliers de louer tout ou une partie de leur propre habitation comme logement d'appoint
+                    </p>
+                </div>
+            </div>
+        </section><!-- End Section -->
+    {% endblock %}
+
+    {% block bodyContainer %}
+        <div class="list-group">
+            {% for u in listuser %}
+            <a href="#" onclick="setUserId({{ u.id }})" class="list-group-item">{{ u.lastName  }} {{ u.firstName }}</a>
+            {% endfor %}
+        </div>
+        {% include 'chatDiv.html.twig' %}
+    {% endblock bodyContainer %}

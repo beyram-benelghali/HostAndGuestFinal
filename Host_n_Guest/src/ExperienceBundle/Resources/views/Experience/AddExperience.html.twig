@@ -1,0 +1,16 @@
+
+{{ form_start(experience_frm_add) }}
+
+<b>Name</b> <br />
+{{ form_widget(experience_frm_add.name) }} <br />
+
+<b>Summary</b> <br />
+{{ form_widget(experience_frm_add.summary) }} <br />
+
+<b>Description</b> <br />
+{{ form_widget(experience_frm_add.description) }}
+
+<br />
+{{ form_widget(experience_frm_add.Submit, {'attr' : {'class' : 'btn_1 add_bottom_15'} }) }}
+
+{{ form_end(experience_frm_add) }}

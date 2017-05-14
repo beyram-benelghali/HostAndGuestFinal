@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="396.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hostandguest.services.FXML_ReviewMainController">
+   <children>
+      <CheckComboBox fx:id="filterPropertiesCheckCB" layoutX="358.0" layoutY="21.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" />
+      <JFXButton fx:id="btnAddReview" buttonType="RAISED" layoutX="14.0" layoutY="19.0" ripplerFill="#b534f1" style="-fx-background-color: #972ac9;" text="Leave A Review" textFill="WHITE" />
+      <JFXButton fx:id="btnApplyFilter" layoutX="435.0" layoutY="20.0" ripplerFill="#b534f1" style="-fx-background-color: #972ac9;" text="Apply Filter" textFill="WHITE" />
+      <JFXComboBox fx:id="filterOrderTypeCB" focusColor="#1a2d68" layoutX="274.0" layoutY="19.0" />
+      <JFXListView fx:id="reviewsList" layoutX="7.0" layoutY="65.0" prefHeight="321.0" prefWidth="534.0" styleClass="reviewListview" stylesheets="@../../../resources/listview.css" />
+   </children>
+</AnchorPane>

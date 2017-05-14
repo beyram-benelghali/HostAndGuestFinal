@@ -1,0 +1,30 @@
+{% for exp in experiences %}
+        <p style="font-family:'CenturyCentury Schoolbook',cursive; font-size: 112%">
+            <p align="right">
+                <small>
+                    Publication Date - {{ exp.publicationDate | date('Y-m-d') }} -
+                    {% if uid == exp.property.host %}
+                        {#<a href="{{ path('experience_update', {'id': exp.id}) }}">Update</a>#}
+                        <a href="{{ path('experience_delete', {'id': exp.id}) }}">Delete</a>
+                    {% endif %}
+                </small>
+            </p>
+            <b><u>Name</u></b>
+            <br />
+            {{ exp.name }}
+        </p>
+        <br />
+        <p style="font-family:'CenturyCentury Schoolbook',cursive; font-size: 125%">
+            <b><u>Summary</u></b>
+            <br />
+            {{ exp.summary }}
+        </p>
+        <br />
+        <p style="font-family:'CenturyCentury Schoolbook',cursive; font-size: 125%">
+            <b><u>Description</u></b>
+            <br />
+            {{ exp.description }}
+        </p>
+        {#<a href="{{ path('experience_details', {'id': exp.id}) }}">Details</a>#}
+    <hr />
+{% endfor %}
